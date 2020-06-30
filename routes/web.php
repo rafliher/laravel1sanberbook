@@ -14,16 +14,10 @@ use PhpOption\None;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index');
 
-Route::get('/register', function () {
-    return view('register');
-});
+Route::get('/register', 'AuthController@register');
 
-Route::get('/welcome', function () {
-    return view('welcome', ["name" => null]);
-});
+Route::get('/welcome', 'HomeController@index');
 
-Route::post('/welcome', 'AuthController@mergeName');
+Route::post('/welcome', 'AuthController@welcome');
